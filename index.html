@@ -3,7 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
     <link rel="stylesheet" href="./style.css" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <script
+      src="https://kit.fontawesome.com/6a2abf25a4.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Wikipedia Search</title>
   </head>
   <body>
@@ -13,11 +29,17 @@
     </header>
     <main>
       <form class="wiki-form">
-        <input type="text" class="wiki-search" />
-        <button class="submit-btn">Search</button>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" class="wiki-search" placeholder="Type search..." />
+        <button
+          title="Clear"
+          aria-label="Clear Current Search"
+          class="clear-btn"
+        >
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
       </form>
-      <div class="results">
-        <div class="articles">
+        <div class="results">
           <a href="http://en.wikipedia.org/?curid=70784214" target="_blank">
             <h4>Loss of load</h4>
             <p>
@@ -72,7 +94,6 @@
             </p>
           </a>
         </div>
-      </div>
     </main>
     <script src="./app.js"></script>
   </body>

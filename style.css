@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --mainBackgroundColor: rgba(229, 238, 246, 0.523);
+  --lightFontfamily: "Inter", sans-serif;
+  --boldFontfamily: "Ubuntu", sans-serif;
+  --whiteBackground: white;
+  --primaryTextColor: rgb(30, 48, 80);
+  --darkHoverBackground: rgba(1, 1, 11, 0.858);
+}
+
+body {
+  background: var(--mainBackgroundColor);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h4 {
+  font-family: var(--lightFontfamily);
+  color: var(--primaryTextColor);
+}
+
+p {
+  line-height: 1.8rem;
+  font-family: var(--lightFontfamily);
+}
+
+p::first-letter {
+  text-transform: capitalize;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+i {
+  color: var(--primaryTextColor);
+}
+
+.wiki-img {
+  height: 11rem;
+  width: 12rem;
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  color: var(--primaryTextColor);
+  font-family: var(--boldFontfamily);
+  font-size: 2rem;
+}
+
+form {
+  width: 70%;
+  max-width: 35rem;
+  border: 2px solid var(--primaryTextColor);
+  height: 3rem;
+  border-radius: 2em;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.4rem;
+  align-items: center;
+  background: var(--whiteBackground);
+  cursor: text;
+}
+
+.fa-magnifying-glass {
+  height: fit-content;
+}
+
+.wiki-search {
+  height: 1.8rem;
+  width: 80%;
+  border: none;
+  font-size: 1rem;
+  color: var(--primaryTextColor);
+}
+
+.wiki-search::placeholder {
+  font-family: var(--lightFontfamily);
+  color: var(--primaryTextColor);
+}
+
+.wiki-search:focus {
+  outline: none;
+}
+
+.clear-btn {
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.clear-btn i:hover {
+  color: rgb(195, 12, 12);
+}
+
+.results {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  margin: 5rem auto;
+  margin-top: 3rem;
+  transition: all 0.2s ease-in;
+}
+
+.results a {
+  padding: 1.2rem 1.2rem;
+  background: var(--whiteBackground);
+  cursor: pointer;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in;
+}
+
+.results a h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px dotted;
+}
+
+.results a p{
+    font-size: 1rem;
+}
+
+.results a:hover {
+  background:var(--darkHoverBackground);
+}
+
+.results a:hover h4{
+    color: rgb(194, 203, 207);
+}
+
+.results a:hover p{
+    color: rgb(108, 115, 176);
+}
+
+@media(min-width: 768px){
+    .results{
+        overflow: hidden;
+        grid-template-columns: 1fr 1fr;
+        padding: 1.2rem 3rem;
+    }
+}
+
+@media(min-width: 992px){
+     .results{
+        padding: 1.2rem 7rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+}
