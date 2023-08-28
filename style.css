@@ -32,6 +32,7 @@ a {
 button {
   border: none;
   background: inherit;
+  cursor: pointer;
 }
 
 h4 {
@@ -131,7 +132,6 @@ header h1 {
 
 .clear-btn {
   font-size: 1.1rem;
-  cursor: pointer;
   visibility: hidden;
 }
 
@@ -163,12 +163,12 @@ header h1 {
   background: whitesmoke;
 }
 
-.delete-btn{
-    font-size: 1rem;
+.delete-btn {
+  font-size: 1rem;
 }
 
-.delete-btn i:hover{
-    color: rgb(195, 12, 12);
+.delete-btn i:hover {
+  color: rgb(195, 12, 12);
 }
 
 .results {
