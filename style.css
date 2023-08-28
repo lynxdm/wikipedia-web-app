@@ -29,6 +29,11 @@ a {
   color: inherit;
 }
 
+button {
+  border: none;
+  background: inherit;
+}
+
 h4 {
   font-family: var(--lightFontfamily);
   color: var(--primaryTextColor);
@@ -66,19 +71,41 @@ header h1 {
   font-size: 2rem;
 }
 
-form {
+.wiki-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 70%;
   max-width: 35rem;
   border: 2px solid var(--primaryTextColor);
   height: 3rem;
   border-radius: 2em;
   margin: 2rem auto;
+  background: var(--whiteBackground);
+  cursor: text;
+}
+
+.wiki-form-flex {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.4rem;
   align-items: center;
-  background: var(--whiteBackground);
-  cursor: text;
+}
+
+.wiki-form .suggestions {
+  display: none;
+}
+
+.searching {
+  height: auto;
+}
+
+.searching .wiki-form-flex {
+  padding-bottom: 0;
+}
+
+.searching .suggestions {
+  display: flex;
 }
 
 .fa-magnifying-glass {
@@ -103,7 +130,6 @@ form {
 }
 
 .clear-btn {
-  border: none;
   font-size: 1.1rem;
   cursor: pointer;
   visibility: hidden;
@@ -111,6 +137,38 @@ form {
 
 .clear-btn i:hover {
   color: rgb(195, 12, 12);
+}
+
+.suggestions {
+  flex-direction: column;
+  list-style: none;
+  padding: 1rem 1rem;
+}
+
+.suggestions li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dotted;
+  padding: 0.7rem 0;
+}
+
+.suggestions li a {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.suggestions li:hover {
+  background: whitesmoke;
+}
+
+.delete-btn{
+    font-size: 1rem;
+}
+
+.delete-btn i:hover{
+    color: rgb(195, 12, 12);
 }
 
 .results {
@@ -139,34 +197,46 @@ form {
   border-bottom: 2px dotted;
 }
 
-.results a p{
-    font-size: 1rem;
+.results a p {
+  font-size: 1rem;
 }
 
 .results a:hover {
-  background:var(--darkHoverBackground);
+  background: var(--darkHoverBackground);
 }
 
-.results a:hover h4{
-    color: rgb(194, 203, 207);
+.results a:hover h4 {
+  color: rgb(194, 203, 207);
 }
 
-.results a:hover p{
-    color: rgb(108, 115, 176);
+.results a:hover p {
+  color: rgb(108, 115, 176);
 }
 
-@media(min-width: 768px){
-    .results{
-        overflow: hidden;
-        grid-template-columns: 1fr 1fr;
-        padding: 1.2rem 3rem;
-    }
+@media (min-width: 768px) {
+  .results {
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.2rem 3rem;
+  }
+
+  .suggestions li {
+    padding: 1rem 0;
+  }
+
+  .delete-btn {
+    visibility: hidden;
+  }
+
+  .suggestions .history:hover .delete-btn {
+    visibility: visible;
+  }
 }
 
-@media(min-width: 992px){
-     .results{
-        padding: 1.2rem 7rem;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
-    }
+@media (min-width: 992px) {
+  .results {
+    padding: 1.2rem 7rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
 }
