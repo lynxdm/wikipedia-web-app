@@ -13,7 +13,8 @@
   --boldFontfamily: "Ubuntu", sans-serif;
   --sectionBackground: white;
   --primaryTextColor: rgb(30, 48, 80);
-  --darkHoverBackground: rgb(1, 1, 11);
+  --darkAltBackground: rgb(1, 1, 11);
+  --lightAltBackground: aliceblue;
   --primaryHover: whitesmoke;
   --secondaryHover: rgb(44, 44, 93);
 }
@@ -22,8 +23,10 @@
   --mainBackgroundColor: rgb(1, 1, 11);
   --primaryTextColor: rgb(194, 203, 207);
   --secondaryTextColor: rgb(108, 115, 176);
-  --sectionBackground:rgb(12, 12, 22);
+  --sectionBackground: rgb(12, 12, 22);
   --primaryHover: rgb(19, 19, 31);
+  --darkAltBackground: rgba(229, 238, 246, 0.523);
+  --lightAltBackground: rgb(10, 13, 23);
 }
 
 body {
@@ -85,7 +88,7 @@ i {
   width: 4rem;
   height: 1.8rem;
   border-radius: 5rem;
-  background-color: var(--darkHoverBackground);
+  background-color: var(--darkAltBackground);
   padding: 0.1rem 0.2rem;
 }
 
@@ -106,7 +109,7 @@ i {
   width: 1.4rem;
   border-radius: 50%;
   transform: translate(2.18rem);
-  background: whitesmoke;
+  background: var(--lightAltBackground);
   transition: all 0.3s ease-out;
 }
 
@@ -118,11 +121,6 @@ i {
 .fa-moon {
   color: white;
   opacity: 0;
-}
-
-.theme-toggle input:checked + label {
-  /* background: rgb(192, 196, 200); */
-  background:rgba(229, 238, 246, 0.523);
 }
 
 .theme-toggle input:checked + label .fa-sun {
@@ -137,7 +135,7 @@ i {
 
 .theme-toggle input:checked + label .ball {
   transform: translate(0);
-  background: rgb(10, 13, 23);
+  /* background: rgb(10, 13, 23); */
 }
 
 .wiki-img {
@@ -236,8 +234,8 @@ header h1 {
   padding: 0.7rem 0;
 }
 
-.suggestions li p{
-    color: var(--primaryTextColor);
+.suggestions li p {
+  color: var(--primaryTextColor);
 }
 
 .suggestions li a {
@@ -289,15 +287,36 @@ header h1 {
 }
 
 .results a:hover {
- border: 2px double rgb(44, 44, 93);
+  outline: 2px double rgb(44, 44, 93);
+  outline-offset: 3px;
 }
 
-.results a:hover h4 {
-  /* color: rgb(194, 203, 207); */
+.results a:focus {
+  outline: 2px double rgb(44, 44, 93);
+  outline-offset: 3px;
 }
 
-.results a:hover p {
-  /* color: rgb(108, 115, 176); */
+.up-btn {
+  visibility: hidden;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1rem;
+  border: 1px solid;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: var(--darkAltBackground);
+  opacity: 0.6;
+}
+
+.up-btn i {
+  color: var(--lightAltBackground);
+  font-size: 1.2rem;
+}
+
+.up-btn:focus {
+  outline: 2px double rgb(44, 44, 93);
+  outline-offset: 3px;
 }
 
 @media (min-width: 768px) {
@@ -322,7 +341,7 @@ header h1 {
 
 @media (min-width: 992px) {
   .results {
-    padding: 1.2rem 7rem;
+    padding: 1.2rem 5rem;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
   }

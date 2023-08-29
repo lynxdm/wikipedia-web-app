@@ -2,6 +2,7 @@ const wikiForm = document.querySelector(".wiki-form");
 const wikiSearch = document.querySelector(".wiki-search");
 const clearBtn = document.querySelector(".clear-btn");
 const themeToggle = document.querySelector(".theme-toggle label");
+const upBtn = document.querySelector(".up-btn");
 
 //******THEME TOGGLE IMPLEMENTATION******
 // check if dark theme was applied in previous usage
@@ -18,6 +19,15 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", "dark-theme");
   if (!document.body.classList.contains("dark-theme")) {
     localStorage.removeItem("theme");
+  }
+});
+
+// ******UP BUTTON IMPLEMENTATION******
+window.addEventListener("scroll", () => {
+  let scrollHeight = window.pageYOffset;
+  upBtn.style.visibility = "hidden";
+  if (scrollHeight > 400) {
+    upBtn.style.visibility = "visible";
   }
 });
 
