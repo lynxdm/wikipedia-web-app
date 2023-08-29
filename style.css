@@ -4,15 +4,26 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 :root {
   --mainBackgroundColor: rgba(229, 238, 246, 0.523);
   --lightFontfamily: "Inter", sans-serif;
   --boldFontfamily: "Ubuntu", sans-serif;
-  --whiteBackground: white;
+  --sectionBackground: white;
   --primaryTextColor: rgb(30, 48, 80);
-  --darkHoverBackground: rgba(1, 1, 11, 0.858);
+  --darkHoverBackground: rgb(1, 1, 11);
+  --primaryHover: whitesmoke;
+  --secondaryHover: rgb(44, 44, 93);
+}
+
+.dark-theme {
+  --mainBackgroundColor: rgb(1, 1, 11);
+  --primaryTextColor: rgb(194, 203, 207);
+  --secondaryTextColor: rgb(108, 115, 176);
+  --sectionBackground:rgb(12, 12, 22);
+  --primaryHover: rgb(19, 19, 31);
 }
 
 body {
@@ -43,6 +54,7 @@ h4 {
 p {
   line-height: 1.8rem;
   font-family: var(--lightFontfamily);
+  color: var(--secondaryTextColor);
 }
 
 p::first-letter {
@@ -57,6 +69,75 @@ header {
 
 i {
   color: var(--primaryTextColor);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.theme-toggle label {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  width: 4rem;
+  height: 1.8rem;
+  border-radius: 5rem;
+  background-color: var(--darkHoverBackground);
+  padding: 0.1rem 0.2rem;
+}
+
+.theme-toggle input {
+  display: none;
+}
+
+.theme-toggle i {
+  font-size: 1.2rem;
+  height: fit-content;
+  width: fit-content;
+  transition: all 0.3s ease-out;
+}
+
+.ball {
+  position: absolute;
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 50%;
+  transform: translate(2.18rem);
+  background: whitesmoke;
+  transition: all 0.3s ease-out;
+}
+
+.fa-sun {
+  color: rgba(226, 196, 28, 0.928);
+  transform: translate(-2.3rem);
+}
+
+.fa-moon {
+  color: white;
+  opacity: 0;
+}
+
+.theme-toggle input:checked + label {
+  /* background: rgb(192, 196, 200); */
+  background:rgba(229, 238, 246, 0.523);
+}
+
+.theme-toggle input:checked + label .fa-sun {
+  transform: translate(0);
+  opacity: 0;
+}
+
+.theme-toggle input:checked + label .fa-moon {
+  transform: translate(2.5rem);
+  opacity: 1;
+}
+
+.theme-toggle input:checked + label .ball {
+  transform: translate(0);
+  background: rgb(10, 13, 23);
 }
 
 .wiki-img {
@@ -82,7 +163,7 @@ header h1 {
   height: 3rem;
   border-radius: 2em;
   margin: 2rem auto;
-  background: var(--whiteBackground);
+  background: var(--sectionBackground);
   cursor: text;
 }
 
@@ -99,6 +180,7 @@ header h1 {
 
 .searching {
   height: auto;
+  transition: all 0.5s ease-in;
 }
 
 .searching .wiki-form-flex {
@@ -114,6 +196,7 @@ header h1 {
 }
 
 .wiki-search {
+  background: inherit;
   height: 1.8rem;
   width: 80%;
   border: none;
@@ -149,8 +232,12 @@ header h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px dotted;
+  border-top: 1px dotted var(--primaryTextColor);
   padding: 0.7rem 0;
+}
+
+.suggestions li p{
+    color: var(--primaryTextColor);
 }
 
 .suggestions li a {
@@ -160,7 +247,7 @@ header h1 {
 }
 
 .suggestions li:hover {
-  background: whitesmoke;
+  background: var(--primaryHover);
 }
 
 .delete-btn {
@@ -173,7 +260,7 @@ header h1 {
 
 .results {
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 0 1rem;
   margin: 5rem auto;
   margin-top: 3rem;
@@ -182,10 +269,10 @@ header h1 {
 
 .results a {
   padding: 1.2rem 1.2rem;
-  background: var(--whiteBackground);
+  background: var(--sectionBackground);
   cursor: pointer;
-  border-radius: 0.3em;
-  transition: all 0.2s ease-in;
+  border-radius: 2em;
+  transition: all 0.1s linear;
 }
 
 .results a h4 {
@@ -202,15 +289,15 @@ header h1 {
 }
 
 .results a:hover {
-  background: var(--darkHoverBackground);
+ border: 2px double rgb(44, 44, 93);
 }
 
 .results a:hover h4 {
-  color: rgb(194, 203, 207);
+  /* color: rgb(194, 203, 207); */
 }
 
 .results a:hover p {
-  color: rgb(108, 115, 176);
+  /* color: rgb(108, 115, 176); */
 }
 
 @media (min-width: 768px) {
