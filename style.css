@@ -338,12 +338,12 @@ header h1 {
 }
 
 .results a:hover {
-  outline: 2px double rgb(44, 44, 93);
+  outline: 2px solid rgb(44, 44, 93);
   outline-offset: 3px;
 }
 
 .results a:focus {
-  outline: 2px double rgb(44, 44, 93);
+  outline: 2px solid rgb(44, 44, 93);
   outline-offset: 3px;
 }
 /* -------------------------------- */
