@@ -114,28 +114,27 @@ i {
 }
 
 .fa-sun {
-  color: rgba(226, 196, 28, 0.928);
+  color: rgba(240, 205, 5, 0.915);
   transform: translate(-2.3rem);
+  opacity: 0;
 }
 
 .fa-moon {
-  color: white;
-  opacity: 0;
+  color: rgb(181, 189, 214);
 }
 
 .theme-toggle input:checked + label .fa-sun {
   transform: translate(0);
-  opacity: 0;
+  opacity: 1;
 }
 
 .theme-toggle input:checked + label .fa-moon {
   transform: translate(2.5rem);
-  opacity: 1;
+  opacity: 0;
 }
 
 .theme-toggle input:checked + label .ball {
   transform: translate(0);
-  /* background: rgb(10, 13, 23); */
 }
 
 .wiki-img {
@@ -232,6 +231,7 @@ header h1 {
   align-items: center;
   border-top: 1px dotted var(--primaryTextColor);
   padding: 0.7rem 0;
+  cursor: pointer;
 }
 
 .suggestions li p {
@@ -263,6 +263,46 @@ header h1 {
   margin: 5rem auto;
   margin-top: 3rem;
   transition: all 0.2s ease-in;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error p {
+  color: rgb(216, 5, 5);
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 300;
+}
+
+.loading {
+  border: 2px solid var(--primaryTextColor);
+  border-top: 2px solid var(--mainBackgroundColor);
+  border-right: 2px solid var(--mainBackgroundColor);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading::backdrop {
+  position: absolute;
+  content: "please wait";
+  bottom: 0;
 }
 
 .results a {
@@ -336,6 +376,11 @@ header h1 {
 
   .suggestions .history:hover .delete-btn {
     visibility: visible;
+  }
+
+  .loading {
+    width: 12rem;
+    height: 12rem;
   }
 }
 
