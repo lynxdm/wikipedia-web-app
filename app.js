@@ -86,7 +86,7 @@ wikiForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let input = wikiSearch.value;
   returnToDefaults();
-  document.activeElement.blur()
+  wikiForm.blur()
   if (input) {
     fetchPages(input);
   } else {
