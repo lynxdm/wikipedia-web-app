@@ -86,6 +86,7 @@ wikiForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let input = wikiSearch.value;
   returnToDefaults();
+  document.activeElement.blur()
   if (input) {
     fetchPages(input);
   } else {
@@ -230,7 +231,7 @@ function addToHistory(id, value) {
   if (list.length > 4) {
     list.shift();
   }
-  
+
   list.push({ id, value });
   localStorage.setItem("list", JSON.stringify(list));
 }
