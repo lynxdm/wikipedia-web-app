@@ -150,7 +150,7 @@ function renderResults(search) {
     .map((value) => {
       return `<a href="http://en.wikipedia.org/?curid=${value.pageid}" target="_blank">
           <h4>${value.title}</h4>
-          <p>${value.snippet}</p>
+          <p>${value.snippet}...</p>
         </a>`;
     })
     .join("");
